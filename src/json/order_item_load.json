@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "order_item_load",
+  "arguments": [
+    "order_item.tsv"
+  ]
+}

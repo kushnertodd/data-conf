@@ -1,0 +1,27 @@
+# Use a base image with the desired OS and runtime environment.
+FROM ubuntu:latest
+
+# Install necessary packages for the programs.
+RUN apt-get update && apt-get install -y 
+
+# Copy the program files into the container.
+COPY dconf_app /app/dconf_app
+COPY bdb_unix_lookup /app/bdb_unix_lookup
+COPY bdb-databases.json /app/bdb-databases.json
+COPY name.db /app/name.db
+COPY principals.db /app/principals.db
+COPY ratings.db /app/ratings.db
+COPY title.db /app/title.db
+
+# Add the supervisor configuration file.
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Install supervisor
+RUN apt-get install -y supervisor
+
+# Expose any necessary ports.
+EXPOSE 8080
+EXPOSE 9090
+
+# Run supervisord when the container starts.
+CMD ["supervisord", "-n"]

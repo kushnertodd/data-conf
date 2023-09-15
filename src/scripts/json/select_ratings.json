@@ -1,0 +1,6 @@
+{
+  "class_name": "Dconf_request",
+  "request": "select_ratings",
+  "arguments": [
+  ]
+}

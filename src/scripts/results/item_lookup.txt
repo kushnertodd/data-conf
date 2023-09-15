@@ -1,0 +1,16 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"item_lookup",
+    "arguments":[
+      "1"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO",
+    "item_id":"1",
+    "name":"Inkrise Infiltrator",
+    "cost":"$0.75"
+  }
+}

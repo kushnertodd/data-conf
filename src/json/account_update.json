@@ -1,0 +1,10 @@
+{
+  "class_name": "Dconf_request",
+  "request": "account_update",
+  "arguments": [
+    "3",
+    "InigoMontoya",
+    "kushnertodd@gmail.com",
+    "2023-08-26"
+  ]
+}

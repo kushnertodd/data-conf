@@ -1,0 +1,5 @@
+/usr/lib/x86_64-linux-gnu/pkgconfig/libcrypto.pc
+/usr/lib/x86_64-linux-gnu/libcrypto.so
+/usr/lib/x86_64-linux-gnu/libcrypto.a
+/usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+/usr/lib/x86_64-linux-gnu/libcrypto.so.3

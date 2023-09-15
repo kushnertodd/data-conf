@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "lookup_name",
+  "arguments": [
+    "nm0000026"
+  ]
+}

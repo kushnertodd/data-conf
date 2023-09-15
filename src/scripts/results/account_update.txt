@@ -1,0 +1,20 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"account_update",
+    "arguments":[
+      "3",
+      "InigoMontoya",
+      "kushnertodd@gmail.com",
+      "2023-08-26"
+    ]
+  },
+  "dconf_request_response":{
+    "class_account":"Account_DTO",
+    "account_id":"3",
+    "username":"InigoMontoya",
+    "email":"kushnertodd@gmail.com",
+    "created":"2023-08-26"
+  }
+}

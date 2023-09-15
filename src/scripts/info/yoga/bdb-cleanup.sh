@@ -1,0 +1,16 @@
+/usr/lib/archive/libdb-18.1.a
+/usr/lib/archive/libdb_cxx-18.1.a
+/usr/lib/archive/libdb_cxx.a
+/usr/lib/archive/libdb.a
+/usr/lib/x86_64-linux-gnu/libdbus-1.so
+/usr/lib/x86_64-linux-gnu/libdbus-1.so.3
+/usr/lib/x86_64-linux-gnu/libdbus-1.a
+/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.32.3
+/usr/lib/x86_64-linux-gnu/archive/libdb_cxx.so
+/usr/lib/x86_64-linux-gnu/archive/libdb-5.3.a
+/usr/lib/x86_64-linux-gnu/archive/libdb-5.3.so
+/usr/lib/x86_64-linux-gnu/archive/libdb.so
+/usr/lib/x86_64-linux-gnu/archive/libdb_cxx-5.3.so
+/usr/lib/x86_64-linux-gnu/archive/libdb_cxx-5.3.a
+/usr/lib/x86_64-linux-gnu/archive/libdb_cxx.a
+/usr/lib/x86_64-linux-gnu/archive/libdb.a

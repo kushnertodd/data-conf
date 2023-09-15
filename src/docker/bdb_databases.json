@@ -1,0 +1,99 @@
+{
+  "class_name": "Bdb_databases_config",
+  "primary_databases": [
+    {
+      "class_name": "Primary_database_config",
+      "name": "account",
+      "filename": "account.db",
+      "secondary_databases": [
+        {
+          "class_name": "Secondary_database_config",
+          "name": "account_email",
+          "filename": "account_email.sdb",
+          "key_extractor": "get_account_email"
+        },
+        {
+          "class_name": "Secondary_database_config",
+          "name": "account_username",
+          "filename": "account_username.sdb",
+          "key_extractor": "get_account_username"
+        }
+      ]
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "account_username_triplets",
+      "filename": "account_username_triplets.db",
+      "has_duplicates": "true"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "item",
+      "filename": "item.db",
+      "secondary_databases": [
+        {
+          "class_name": "Secondary_database_config",
+          "name": "item_name",
+          "filename": "item_name.sdb",
+          "key_extractor": "get_item_name"
+        },
+        {
+          "class_name": "Secondary_database_config",
+          "name": "item_cost",
+          "filename": "item_cost.sdb",
+          "key_extractor": "get_item_cost"
+        }
+      ]
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "item_name_triplets",
+      "filename": "item_name_triplets.db",
+      "has_duplicates": "true"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "order",
+      "filename": "order.db",
+      "secondary_databases": [
+        {
+          "class_name": "Secondary_database_config",
+          "name": "order_account_id",
+          "filename": "order_account_id.sdb",
+          "key_extractor": "get_order_account_id"
+        },
+        {
+          "class_name": "Secondary_database_config",
+          "name": "order_name",
+          "filename": "order_name.sdb",
+          "key_extractor": "get_order_name"
+        }
+      ]
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "order_item",
+      "filename": "order_item.db",
+      "secondary_databases": [
+        {
+          "class_name": "Secondary_database_config",
+          "name": "order_item_item_id",
+          "filename": "order_item_item_id.sdb",
+          "key_extractor": "get_order_item_item_id"
+        },
+        {
+          "class_name": "Secondary_database_config",
+          "name": "order_item_order_id",
+          "filename": "order_item_order_id.sdb",
+          "key_extractor": "get_order_item_order_id"
+        }
+      ]
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "order_name_triplets",
+      "filename": "order_name_triplets.db",
+      "has_duplicates": "true"
+    }
+  ]
+}

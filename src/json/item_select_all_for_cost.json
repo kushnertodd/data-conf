@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "item_select_all_for_cost",
+  "arguments": [
+    "$15.30"
+  ]
+}

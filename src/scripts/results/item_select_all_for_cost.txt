@@ -1,0 +1,21 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"item_select_all_for_cost",
+    "arguments":[
+      "$15.30"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO_list",
+    "item_dto_list":[
+      {
+        "class_item":"Item_DTO",
+        "item_id":"8",
+        "name":"Serra Angel",
+        "cost":"$15.30"
+      }
+    ]
+  }
+}

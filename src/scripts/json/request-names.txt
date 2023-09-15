@@ -1,0 +1,14 @@
+load_name
+load_principals
+load_ratings
+load_title
+lookup_name
+lookup_ratings
+lookup_title
+search_name
+search_title
+select_name
+select_ratings
+select_title
+update_name
+update_title

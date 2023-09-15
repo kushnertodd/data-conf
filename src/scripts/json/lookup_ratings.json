@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "lookup_ratings",
+  "arguments": [
+    "tt0060522"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "class_name": "Dconf_request",
+  "request": "item_match_name",
+  "arguments": [
+    "Spirit Sistr's Call",
+    "10",
+    "10"
+  ]
+}

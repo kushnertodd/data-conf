@@ -1,0 +1,27 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"order_select_all_items",
+    "arguments":[
+      "1"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO_list",
+    "item_dto_list":[
+      {
+        "class_item":"Item_DTO",
+        "item_id":"1",
+        "name":"Inkrise Infiltrator",
+        "cost":"$0.75"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"3",
+        "name":"Spririt Sisters Call",
+        "cost":"$1.75"
+      }
+    ]
+  }
+}

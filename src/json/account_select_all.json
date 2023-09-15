@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "account_select_all",
+  "arguments": [
+    "dkushner42@gmail.com"
+  ]
+}

@@ -1,0 +1,6 @@
+          134084      4 -rw-r--r--   1 root     root          281 Aug  1 14:00 /usr/lib/x86_64-linux-gnu/pkgconfig/archive/libssl.pc
+           29457    584 -rw-r--r--   1 root     root       597792 May 26 15:30 /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+            6800    684 -rw-r--r--   1 root     root       696352 Aug  1 14:00 /usr/lib/x86_64-linux-gnu/libssl.so.3
+          134068   1204 -rw-r--r--   1 root     root      1230796 Aug  1 14:00 /usr/lib/x86_64-linux-gnu/libssl.a
+          134098      0 lrwxrwxrwx   1 root     root           11 Aug  1 14:00 /usr/lib/x86_64-linux-gnu/libssl.so -> libssl.so.3
+           30170    408 -rw-r--r--   1 root     root       417144 Aug 17 13:53 /usr/lib/x86_64-linux-gnu/libssl3.so

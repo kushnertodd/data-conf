@@ -1,0 +1,29 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"item_match_name",
+    "arguments":[
+      "Spirit Sistr's Call",
+      "10",
+      "10"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO_list",
+    "item_dto_list":[
+      {
+        "class_item":"Item_DTO",
+        "item_id":"3",
+        "name":"Spririt Sisters Call",
+        "cost":"$1.75"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"5",
+        "name":"Spiritual Guardian",
+        "cost":"$0.50"
+      }
+    ]
+  }
+}

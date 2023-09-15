@@ -1,3 +1,11 @@
+archive/
+*.gz
+.idea/
+imdb-data/
+*.log
+META-INF/
+.*.swp
+target/
 # Prerequisites
 *.d
 
@@ -14,7 +22,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -24,9 +31,12 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
 *.out
 *.app
+# idea
+.idea/
+cmake-build-debug/
+*/cmake-build-debug/

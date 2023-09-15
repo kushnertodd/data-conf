@@ -1,0 +1,18 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"order_update",
+    "arguments":[
+      "5",
+      "3",
+      "Dad's White-blue"
+    ]
+  },
+  "dconf_request_response":{
+    "class_order":"Order_DTO",
+    "order_id":"5",
+    "account_id":"3",
+    "name":"Dad's White-blue"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "load_principals",
+  "arguments": [
+    "title.principals.tsv"
+  ]
+}

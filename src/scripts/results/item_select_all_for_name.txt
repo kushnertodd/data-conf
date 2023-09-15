@@ -1,0 +1,21 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"item_select_all_for_name",
+    "arguments":[
+      "Angelic Guardian"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO_list",
+    "item_dto_list":[
+      {
+        "class_item":"Item_DTO",
+        "item_id":"4",
+        "name":"Angelic Guardian",
+        "cost":"$20.10"
+      }
+    ]
+  }
+}

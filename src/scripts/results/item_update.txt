@@ -1,0 +1,18 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"item_update",
+    "arguments":[
+      "4",
+      "Angelic Guardian",
+      "$0.75"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO",
+    "item_id":"4",
+    "name":"Angelic Guardian",
+    "cost":"$0.75"
+  }
+}

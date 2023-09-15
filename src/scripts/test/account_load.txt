@@ -1,0 +1,14 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"account_load",
+    "arguments":[
+      "account.tsv"
+    ]
+  },
+  "dconf_request_response":{
+    "class_name":"Dconf_request_response",
+    "record_count":"4"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"account_match_username",
+    "arguments":[
+      "ShadowCalibrator",
+      "10",
+      "10"
+    ]
+  },
+  "dconf_request_response":{
+    "class_account":"Account_DTO_list",
+    "account_dto_list":[
+      {
+        "class_account":"Account_DTO",
+        "account_id":"1",
+        "username":"ShadowCalibrator",
+        "email":"dkushner42@gmail.com",
+        "created":"2023-08-24"
+      }
+    ]
+  }
+}

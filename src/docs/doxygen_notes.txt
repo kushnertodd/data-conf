@@ -1,0 +1,5 @@
+Special commands documented in https://www.doxygen.nl/manual/commands.html
+@tparam used to document template parameters.
+@param used to document function parameters.
+@arg alternative way of documenting template parameters.
+@brief used to describe the metafunction.

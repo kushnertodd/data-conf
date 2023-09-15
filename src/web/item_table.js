@@ -1,0 +1,163 @@
+/*
+ * requests.js:
+ * Request class
+ */
+
+class Item_table {
+    static table_name = "item";
+    static div_id = "item_table";
+    static id = "item_table_id";
+
+    static label;
+    static table;
+    static selected_row;
+    static item_name;
+    static item_id;
+
+    static buttons;
+    static remove_item_button;
+
+    static button_remove_item(e) {
+        e.preventDefault();
+        let item_row_selected = Item_table.selected_row;
+        let item_id = item_row_selected.data.item_id;
+        let order_id = Order_table.order_id;
+        let request = new Request({
+            request: "order_remove_item",
+            arguments: [order_id, item_id]
+        });
+        request.send(Item_table.remove_order_item_request_success, Item_table.remove_order_item_request_failure);
+    }
+
+    static remove_order_item_request_failure(req) {
+        alert(`remove order item request failed: '${req}'`);
+    }
+
+    static remove_order_item_request_success(result) {
+        let result_obj = Request.parse_response(result);
+        let request_name = result_obj.dconf_request.request;
+        //Order_table.add_items_button.enable();
+        let select_all_request = new Request({
+            request: "order_select_all_items",
+            arguments: Order_table.order_id
+        });
+        select_all_request.send(Item_table.select_order_items_request_success, Item_table.select_order_items_request_failure);
+        let select_other_request = new Request({
+            request: "order_select_other_items",
+            arguments: Order_table.order_id
+        });
+        select_other_request.send(Item_pool_table.select_order_other_items_request_success, Item_pool_table.select_order_other_items_request_failure);
+    }
+
+    static clear() {
+        //Item_description_table.clear();
+        Item_pool_table.clear();
+        Item_table.table.clear();
+        Item_table.label_unset();
+        Item_table.buttons.hide();
+    }
+
+    static create(item_list) {
+        let headers = ["Item", "Cost"];
+        Item_table.clear();
+        let table = Item_table.table;
+        table.add_row({id: "r0"})
+        let cellWidths = ['50%', '50%'];
+        for (let i = 0; i < headers.length; i++)
+            table.add_th({
+                    row_id: "r0",
+                    id: `h${i}`,
+                    text: headers[i],
+                    class_name: " header",
+                    width: cellWidths[i]
+                }
+            );
+        if (item_list) {
+            for (let i = 0; i < item_list.length; i++) {
+                let row_id = `r${i}`;
+                let tr = table.add_row({data: item_list[i], id: row_id})
+                tr.addEventListener('click', Item_table.row_onlick_handler);
+                //tr.addEventListener('contextmenu', Item_table.row_contextmenu_onlick_handler);
+                table.add_td({row_id: row_id, id: "items_name", text: item_list[i].name})
+                table.add_td({row_id: row_id, id: "items_cost", text: item_list[i].cost})
+            }
+            Item_table.label_set();
+            //Item_table.buttons.hide();
+            Item_table.editing();
+        } else
+            Item_table.remove_item_button.disable();
+    }
+
+    static editing() {
+        if (Order_table.editing) {
+            Item_table.buttons.show();
+            Item_table.remove_item_button.disable();
+        } else
+            Item_table.buttons.hide();
+    }
+
+    static init() {
+        Item_table.table = new Table({
+            name: Item_table.table_name,
+            div_id: Item_table.div_id,
+            id: Item_table.id
+        });
+        Item_table.label = $("#displayed_order");
+        Item_table.buttons = new Button_set({
+            name: "buttons",
+            div_id: "item_table_buttons",
+            hidden: true
+        });
+        Item_table.remove_item_button = new Button({
+            name: "Remove item",
+            id: "item_table_remove_item_id",
+            event_listener: Item_table.button_remove_item,
+            disabled: true
+        });
+        Item_table.buttons.add_button(Item_table.remove_item_button);
+    }
+
+    static label_set() {
+        let order_name = Order_table.order_name;
+        Item_table.label.html(`Order: ${order_name}`);
+    }
+
+    static label_unset() {
+        Item_table.label.html("");
+    }
+
+    static row_contextmenu_onlick_handler(e) {
+        e.preventDefault();
+        let item_row_selected = e.currentTarget;
+        let data = item_row_selected.data;
+        let item_id = data.item_id;
+        Table.select_row(item_row_selected);
+        Item_description_table.label_set();
+        Item_description_table.create(data);
+    }
+
+    static row_onlick_handler(e) {
+        e.preventDefault();
+        if (Order_table.editing) {
+            let item_row_selected = e.currentTarget;
+            Item_table.selected_row = item_row_selected;
+            Item_table.table.select_row(item_row_selected);
+            let item = item_row_selected.data;
+            Item_table.item_id = item.item_id;
+            Item_table.item_name = item.name;
+            Item_table.remove_item_button.enable();
+        }
+    }
+
+    static select_order_items_request_failure(req) {
+        alert(`select user request failed: '${req}'`);
+    }
+
+    static select_order_items_request_success(result) {
+        let result_obj = Request.parse_response(result);
+        //let request_name = result_obj.dconf_request.request;
+        //Item_table.label_set();
+        //Order_table.add_items_button.enable();
+        Item_table.create(result_obj.dconf_request_response.item_dto_list);
+    }
+}

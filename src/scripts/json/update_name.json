@@ -1,0 +1,9 @@
+{
+  "class_name": "Dconf_request",
+  "request": "update_name",
+  "arguments": [
+    "nm0000026",
+    "best",
+    "good movie"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "order_select_all_items",
+  "arguments": [
+    "1"
+  ]
+}

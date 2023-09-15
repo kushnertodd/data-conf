@@ -1,0 +1,157 @@
+div.title {
+    font-size: large;
+}
+
+html * {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.table-layout {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin: 0 auto 0;
+}
+
+.table-layout td, .table-layout th {
+    border: 1px solid grey;
+    padding: 5px 5px 0;
+}
+
+.table-layout td {
+    text-align: left;
+}
+
+table,
+th,
+td {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.header {
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+.itemname {
+    text-align: left;
+}
+
+.ordername {
+    text-align: left;
+}
+
+.username {
+    text-align: left;
+}
+
+
+.selected {
+    background-color: DodgerBlue;
+    color: Gold;
+    font-weight: bold;
+}
+
+.unselected {
+    background-color: White;
+    color: Black;
+    font-weight: normal;
+}
+
+.button {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-insert {
+    background-color: teal;
+}
+
+.button-edit {
+    background-color: darkblue;
+}
+
+.button-delete {
+    background-color: saddlebrown;
+}
+
+label, input {
+    display: block;
+}
+
+input.text {
+    margin-bottom: 12px;
+    width: 95%;
+    padding: .4em;
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin-top: 25px;
+}
+
+h1 {
+    font-size: 1.2em;
+    margin: .6em 0;
+}
+
+div#movies-table {
+    width: 350px;
+    margin: 20px 0;
+}
+
+div#movies-table table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+div#movies-table table td, div#movies-table table th {
+    border: 1px solid #eee;
+    padding: .6em 10px;
+    text-align: left;
+}
+
+.ui-dialog .ui-state-error {
+    padding: .3em;
+}
+
+.ui-widget {
+    font-size: 0.9em !important
+}
+
+.validateTips {
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-container > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    gap: 10px;
+    padding: 10px;
+}
+

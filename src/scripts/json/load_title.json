@@ -1,0 +1,7 @@
+{
+  "class_name": "Dconf_request",
+  "request": "load_title",
+  "arguments": [
+    "title.basics.tsv"
+  ]
+}

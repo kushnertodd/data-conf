@@ -1,0 +1,124 @@
+../src/repmgr/repmgr_util.c: In function '__repmgr_msgdispatch':
+../src/dbinc/repmgr.h:148:36: warning: '%x' directive writing between 1 and 2 bytes into a region of size between 1 and 80 [-Wformat-overflow=]
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+      |                                    ^~~~~~~
+../src/repmgr/repmgr_util.c:3215:9: note: in expansion of macro 'REPMGR_WF_DUMP_FILEID'
+ 3215 |         REPMGR_WF_DUMP_FILEID(fileid, i, fidstr);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+../src/dbinc/repmgr.h:148:39: note: format string is defined here
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+      |                                       ^~
+../src/dbinc/repmgr.h:148:36: note: directive argument in the range [0, 255]
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+      |                                    ^~~~~~~
+../src/repmgr/repmgr_util.c:3215:9: note: in expansion of macro 'REPMGR_WF_DUMP_FILEID'
+ 3215 |         REPMGR_WF_DUMP_FILEID(fileid, i, fidstr);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/stdio.h:906,
+                 from ./db_int.h:92:
+In function 'sprintf',
+    inlined from '__repmgr_msgdispatch' at ../src/repmgr/repmgr_util.c:3215:2:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:10: note: '__builtin___sprintf_chk' output between 3 and 83 bytes into a destination of size 80
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+../src/repmgr/repmgr_util.c: In function '__repmgr_forward_single_write':
+../src/dbinc/repmgr.h:148:36: warning: '%x' directive writing between 1 and 2 bytes into a region of size between 1 and 80 [-Wformat-overflow=]
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+      |                                    ^~~~~~~
+../src/repmgr/repmgr_util.c:3069:9: note: in expansion of macro 'REPMGR_WF_DUMP_FILEID'
+ 3069 |         REPMGR_WF_DUMP_FILEID(dbp->fileid, i, fidstr);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+../src/dbinc/repmgr.h:148:39: note: format string is defined here
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+../src/dbinc/repmgr.h:148:36: note: directive argument in the range [0, 255]
+  148 |                 (void)sprintf(str, "%s%x ", str, fileid[i]);
+      |                                    ^~~~~~~
+../src/repmgr/repmgr_util.c:3069:9: note: in expansion of macro 'REPMGR_WF_DUMP_FILEID'
+ 3069 |         REPMGR_WF_DUMP_FILEID(dbp->fileid, i, fidstr);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In function 'sprintf',
+    inlined from '__repmgr_forward_single_write' at ../src/repmgr/repmgr_util.c:3069:2:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:10: note: '__builtin___sprintf_chk' output between 3 and 83 bytes into a destination of size 80
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+libtool: compile:  cc -c -I. -I../src -D_GNU_SOURCE -D_REENTRANT -O3 ../src/db/db_vrfy.c -o db_vrfy.o
+../src/db/db_vrfy.c: In function '__db_vrfy_inpitem':
+../src/db/db_vrfy.c:2376:39: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'db_pgno_t' {aka 'unsigned int'} [-Wformat=]
+ 2376 |                 __db_msg(env, "Page %lu index has no end.", pgno);
+      |                                     ~~^                     ~~~~
+      |                                       |                     |
+      |                                       long unsigned int     db_pgno_t {aka unsigned int}
+      |                                     %u
+./libtool --mode=compile cc -c -I. -I../src  -D_GNU_SOURCE -D_REENTRANT -O3  ../libtool --mode=compile cc -c -I. -I../src  -D_GNU_SOURCE -D_REENTRANT -O3  ../src/blob/blob_util.c
+libtool: compile:  cc -c -I. -I../src -D_GNU_SOURCE -D_REENTRANT -O3 ../src/blob/blob_util.c -o blob_util.o
+../src/blob/blob_util.c: In function '__blob_id_to_path':
+../src/blob/blob_util.c:549:43: warning: '%0*llu' directive output between 6 and 2147483647 bytes may cause result to exceed 'INT_MAX' [-Wformat-overflow=]
+  549 |         (void)sprintf(path + name_len, "%s%0*llu",
+      |                                           ^~~~~~
+../src/blob/blob_util.c:549:40: note: directive argument in the range [1, 9223372036854775807]
+  549 |         (void)sprintf(path + name_len, "%s%0*llu",
+      |                                        ^~~~~~~~~~
+../src/common/db_err.c:1578:17: warning: '%06lu' directive output may be truncated writing between 6 and 20 bytes into a region of size between 0 and 25 [-Wformat-truncation=]
+ 1578 |             "%s.%06lu", d, (u_long)(timespec->tv_nsec / NS_PER_US));
+      |                 ^~~~~
+../src/common/db_err.c:1578:13: note: using the range [0, 18446744073709551615] for directive argument
+ 1578 |             "%s.%06lu", d, (u_long)(timespec->tv_nsec / NS_PER_US));
+      |             ^~~~~~~~~~
+In file included from /usr/include/stdio.h:906,
+                 from ./db_int.h:92,
+                 from ../src/common/db_err.c:11:
+In function 'snprintf',
+    inlined from '__db_ctimespec' at ../src/common/db_err.c:1577:8:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:54:10: note: '__builtin___snprintf_chk' output between 8 and 47 bytes into a destination of size 26
+   54 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   55 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   56 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+../src/common/db_err.c: In function '__db_failed':
+../src/common/db_err.c: In function '__db_failed':
+./db_int.h:530:35: warning: '%s' directive output may be truncated writing up to 127 bytes into a region of size 97 [-Wformat-truncation=]
+  530 | #define DB_STR_A(id, msg, fmt)  _("BDB" id " " DB_STR_C(msg, fmt))
+      |                                   ^~~~~
+./db_int.h:526:17: note: in definition of macro '_'
+  526 | #define _(msg)  msg
+      |                 ^~~
+../src/common/db_err.c:1302:44: note: in expansion of macro 'DB_STR_A'
+ 1302 |         snprintf(failmsg, sizeof(failmsg), DB_STR_A("0113",
+      |                                            ^~~~~~~~
+In function 'snprintf',
+    inlined from '__db_failed' at ../src/common/db_err.c:1302:2:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:54:10: note: '__builtin___snprintf_chk' output 33 or more bytes (assuming 160) into a destination of size 120
+   54 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   55 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   56 |                                    __va_arg_pack ());
+libtool: compile:  cc -c -I. -I../src -D_GNU_SOURCE -D_REENTRANT -O3 ../src/db/partition.c -o partition.o
+In file included from ../src/db/partition.c:11:
+../src/db/partition.c: In function '__partition_chk_meta':
+./db_int.h:530:35: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'u_int32_t' {aka 'unsigned int'} [-Wformat=]
+  530 | #define DB_STR_A(id, msg, fmt)  _("BDB" id " " DB_STR_C(msg, fmt))
+      |                                   ^~~~~
+./db_int.h:526:17: note: in definition of macro '_'
+  526 | #define _(msg)  msg
+      |                 ^~~
+../src/db/partition.c:598:32: note: in expansion of macro 'DB_STR_A'
+  598 |                 __db_errx(env, DB_STR_A("5553",
+      |                                ^~~~~~~~
+libtool: install: cp -p db_upgrade /usr/bin/db_upgrade
+libtool: install: cp -p db_verify /usr/bin/db_verify
+Installing documentation: /usr/docs ...
+cp: cannot stat 'bdb-sql': No such file or directory
+cp: cannot stat 'gsg_db_server': No such file or directory
+make: *** [Makefile:1310: install_docs] Error 1
+

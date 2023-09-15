@@ -1,0 +1,5 @@
+# the location of the database files
+#set_data_dir ../data/db
+# set the cache size to 4 GBytes 0 KBytes and 1 segment
+#set_cachesize 4 0 1
+

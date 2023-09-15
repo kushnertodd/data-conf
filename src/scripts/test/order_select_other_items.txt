@@ -1,0 +1,51 @@
+{
+  "class_name":"Dconf_request_response",
+  "dconf_request":{
+    "class_name":"Dconf_request",
+    "request":"order_select_other_items",
+    "arguments":[
+      "1"
+    ]
+  },
+  "dconf_request_response":{
+    "class_item":"Item_DTO_list",
+    "item_dto_list":[
+      {
+        "class_item":"Item_DTO",
+        "item_id":"2",
+        "name":"Phyrexian Missionary",
+        "cost":"$2.20"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"4",
+        "name":"Angelic Guardian",
+        "cost":"$20.10"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"5",
+        "name":"Spiritual Guardian",
+        "cost":"$0.50"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"6",
+        "name":"Scheming Aspirant",
+        "cost":"$4.00"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"7",
+        "name":"Phyrexian Awakening",
+        "cost":"$12.25"
+      },
+      {
+        "class_item":"Item_DTO",
+        "item_id":"8",
+        "name":"Serra Angel",
+        "cost":"$15.30"
+      }
+    ]
+  }
+}

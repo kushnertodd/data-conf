@@ -1,0 +1,51 @@
+{
+  "class_name": "Bdb_databases_config",
+  "primary_databases": [
+    {
+      "class_name": "Primary_database_config",
+      "name": "title",
+      "filename": "title.db"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "title_triplets",
+      "filename": "title_triplets.db",
+      "has_duplicates": "true"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "name",
+      "filename": "name.db"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "name_triplets",
+      "filename": "name_triplets.db",
+      "has_duplicates": "true"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "ratings",
+      "filename": "ratings.db"
+    },
+    {
+      "class_name": "Primary_database_config",
+      "name": "principals",
+      "filename": "principals.db",
+      "secondary_databases": [
+        {
+          "class_name": "Secondary_database_config",
+          "name": "principals_name_id",
+          "filename": "principals_name_id.sdb",
+          "key_extractor": "get_principals_name_id"
+        },
+        {
+          "class_name": "Secondary_database_config",
+          "name": "principals_title_id",
+          "filename": "principals_title_id.sdb",
+          "key_extractor": "get_principals_title_id"
+        }
+      ]
+    }
+  ]
+}
