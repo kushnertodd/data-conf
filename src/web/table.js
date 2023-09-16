@@ -30,8 +30,10 @@ class Table {
         this.tbody.appendChild(row)
         row.table = this;
         row.id = args.id;
-        if (args.data) row.data = args.data;
-        if (args.text) row.innerText = args.text;
+        if (args.data)
+            row.data = args.data;
+        if (args.text)
+            row.innerText = args.text;
         this.rows[args.id] = row;
         row.tds = {};
         row.ths = {};
@@ -58,8 +60,10 @@ class Table {
         row.appendChild(th)
         th.id = args.id;
         th.innerText = args.text;
-        if (args.class_name) th.className += args.class_name;
-        if (args.width) th.width = args.width;
+        if (args.class_name)
+            th.className += args.class_name;
+        if (args.width)
+            th.width = args.width;
         row.ths[args.id] = th;
     }
 

@@ -9,6 +9,7 @@ class Order_table {
     static id = "order_table_id";
 
     static editing;
+    static input_field;
     static label;
     static table;
     static selected_row;
@@ -19,6 +20,7 @@ class Order_table {
     static delete_order_button;
     static edit_order_button;
     static new_order_button;
+    static save_order_button;
 
     static show_items(order_id) {
         let request = new Request({
@@ -31,9 +33,6 @@ class Order_table {
     static button_delete_order(e) {
         e.preventDefault();
         Order_table.editing = false;
-        //Order_table.delete_order_button.disable();
-        //Order_table.edit_order_button.disable();
-        //User_Select_list.username = data.username;
         let request = new Request({
             request: "order_remove",
             arguments: Order_table.order_id
@@ -45,6 +44,7 @@ class Order_table {
         e.preventDefault();
         Order_table.editing = true;
         Order_table.edit_order_button.disable();
+        Order_table.input_field.show();
         Item_table.editing();
         let order_id = Order_table.order_id;
         let request = new Request({
@@ -104,6 +104,12 @@ class Order_table {
             div_id: "order_table_buttons",
             hidden: true
         });
+        Order_table.input_field = new Input_field({
+            name: "order_name",
+            div_id: "order_table_name_input",
+            hidden: true,
+            label: "Order name:"
+        });
         Order_table.delete_order_button = new Button({
             name: "Delete order",
             id: "order_table_delete_order_id",
@@ -122,6 +128,13 @@ class Order_table {
             name: "New order",
             id: "order_table_new_order_id",
             event_listener: Order_table.button_new_order,
+            disabled: false
+        });
+        Order_table.buttons.add_button(Order_table.new_order_button);
+        Order_table.save_order_button = new Button({
+            name: "Save order",
+            id: "order_table_save_buttons",
+            event_listener: Order_table.button_save_order,
             disabled: false
         });
         Order_table.buttons.add_button(Order_table.new_order_button);

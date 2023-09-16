@@ -17,7 +17,8 @@ class Select_list {
         this.dom = document.getElementById(args.div_id);
         this.select_list = document.createElement('SELECT');
         this.dom.appendChild(this.select_list);
-        if (args.event_listener) addEventListener('change', args.event_listener);
+        if (args.event_listener)
+            addEventListener('change', args.event_listener);
     }
 
     // usage: add_option({id: "id", data: obj, text: "text", value: "value", selected: bool, disabled: bool});
@@ -25,13 +26,20 @@ class Select_list {
         let option = document.createElement('OPTION');
         this.select_list.options.add(option)
         option.select_list = this;
-        if (args.id) option.id = args.id;
-        if (args.data) option.data = args.data;
-        if (args.text) option.text = args.text;
-        if (args.value) option.value = args.value;
-        if (args.selected) option.selected = args.selected;
-        if (args.disabled) option.disabled = args.disabled;
-        if (args.id) this.options[args.id] = option;
+        if (args.id)
+            option.id = args.id;
+        if (args.data)
+            option.data = args.data;
+        if (args.text)
+            option.text = args.text;
+        if (args.value)
+            option.value = args.value;
+        if (args.selected)
+            option.selected = args.selected;
+        if (args.disabled)
+            option.disabled = args.disabled;
+        if (args.id)
+            this.options[args.id] = option;
         return option;
     }
 

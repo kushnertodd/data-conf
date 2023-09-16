@@ -15,11 +15,16 @@ class Button {
         this.button.classList.add("btn-primary");
         //this.button.style.fontWeight="bold";
         this.button.style.fontFamily = "Verdana,Arial,sans-serif";
-        if (args.name) this.button.innerHTML = args.name;
-        if (args.name) this.button.value = args.name;
-        if (args.id) this.button.id = args.id;
-        if (args.event_listener) this.button.addEventListener('click', args.event_listener);
-        if (args.disabled) this.disable();
+        if (args.name)
+            this.button.innerHTML = args.name;
+        if (args.name)
+            this.button.value = args.name;
+        if (args.id)
+            this.button.id = args.id;
+        if (args.event_listener)
+            this.button.addEventListener('click', args.event_listener);
+        if (args.disabled)
+            this.disable();
     }
 
     disable() {

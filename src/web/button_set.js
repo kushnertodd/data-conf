@@ -12,10 +12,14 @@ class Button_set {
     // usage: constructor({name: "name", div_id: "div_id", id: "id",  hidden: bool});
     constructor(args) {
         Button_set.button_sets[args.name] = this;
-        if (args.name) this.name = args.name;
-        if (args.div_id) this.dom = document.getElementById(args.div_id);
-        if (args.id) this.name = args.id;
-        if (args.hidden) this.hide();
+        if (args.name)
+            this.name = args.name;
+        if (args.div_id)
+            this.dom = document.getElementById(args.div_id);
+        if (args.id)
+            this.name = args.id;
+        if (args.hidden)
+            this.hide();
     }
 
     // usage: add_button(button);

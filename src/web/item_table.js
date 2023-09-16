@@ -50,7 +50,6 @@ class Item_table {
     }
 
     static clear() {
-        //Item_description_table.clear();
         Item_pool_table.clear();
         Item_table.table.clear();
         Item_table.label_unset();
@@ -132,8 +131,6 @@ class Item_table {
         let data = item_row_selected.data;
         let item_id = data.item_id;
         Table.select_row(item_row_selected);
-        Item_description_table.label_set();
-        Item_description_table.create(data);
     }
 
     static row_onlick_handler(e) {
