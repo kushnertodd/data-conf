@@ -3,6 +3,7 @@ archive/
 .idea/
 imdb-data/
 src_old/
+.git_old/
 *.log
 META-INF/
 .*.swp
