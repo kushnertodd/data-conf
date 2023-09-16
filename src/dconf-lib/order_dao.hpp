@@ -25,6 +25,10 @@ class Order_DAO {
   static void save(Bdb_dbp &order_db,
                    Order_DTO &order_dto,
                    Bdb_errors &errors);
+  static void save_key(Bdb_dbp &order_db,
+                       Order_DTO &order_dto,
+                       Order_DTO &order_dto_with_key,
+                   Bdb_errors &errors);
   static void select_all(Bdb_dbp &order_db,
                          Order_DTO_list &order_dto_list,
                          Bdb_errors &errors);

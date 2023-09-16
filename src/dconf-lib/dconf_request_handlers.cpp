@@ -511,6 +511,7 @@ bool Dconf_order_request_handler::handle(Dconf_inet_app_init &dconf_inet_app_ini
       && !Dconf_order_request_handler::load(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
       && !Dconf_order_request_handler::lookup(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
       && !Dconf_order_request_handler::match_name(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
+      && !Dconf_order_request_handler::new_order(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
       && !Dconf_order_request_handler::remove_item(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
       && !Dconf_order_request_handler::remove_order(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
       && !Dconf_order_request_handler::select_all(dconf_inet_app_init, dconf_request, dconf_request_response, errors)
@@ -617,6 +618,40 @@ bool Dconf_order_request_handler::match_name(Dconf_inet_app_init &dconf_inet_app
        "order_name_triplets",
        dconf_request_response,
        errors);
+  return true;
+}
+
+bool Dconf_order_request_handler::new_order(Dconf_inet_app_init &dconf_inet_app_init,
+                                            const Dconf_request &dconf_request,
+                                            Dconf_request_response &dconf_request_response,
+                                            Bdb_errors &errors) {
+  if (dconf_request.request != "order_new")
+    return false;
+  if (dconf_request.arguments.size() < 2)
+    errors.add("Dconf_order_request_handler::new_order", "1", "missing name or account_id");
+  Primary_database_config order_primary_database_config;
+  dconf_inet_app_init.bdb_databases_config.select("order", order_primary_database_config, errors);
+  std::unique_ptr<Bdb_key_extractor> dconf_bdb_key_extractor =
+      std::make_unique<Dconf_bdb_key_extractor>();
+  Primary_database
+      order_db(order_primary_database_config, dconf_bdb_key_extractor.get(), dconf_inet_app_init.db_home,
+               errors);
+  if (!errors.has()) {
+    std::string name = dconf_request.arguments.at(0);
+    std::string account_id = dconf_request.arguments.at(1);
+    Order_DTO order_dto(account_id, name);
+    Order_DTO order_dto_with_key;
+    Order_DAO::save_key(order_db.bdb_db,
+                        order_dto,
+                        order_dto_with_key,
+                        errors);
+    if (!errors.has()) {
+      json_object *order_dto_json = order_dto_with_key.to_json(errors);
+      if (!errors.has()) {
+        dconf_request_response.add_response(order_dto_json);
+      }
+    }
+  }
   return true;
 }
 

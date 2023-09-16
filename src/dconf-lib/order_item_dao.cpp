@@ -81,21 +81,23 @@ void Order_item_DAO::delete_order_item(Bdb_dbp &order_item_db,
         // TODO: kludge
         //        errors.add("Order_item_DAO::delete_order_item", "1", "too many order_items matching order_id " +
         //            order_id + ", item_id " + item_id);
-        Bdb_DAO::delete_key<Order_item_DTO_key>(order_item_db,
-                                                matched_order_item_dto_key_list.list.front(),
-                                                errors, nullptr, true);
         Bdb_DAO::lookup<Order_item_DTO_key, Order_item_DTO>(order_item_db,
                                                             matched_order_item_dto_key_list.list.front(),
                                                             order_item_dto_with_key,
                                                             errors);
+        if (!errors.has())
+          Bdb_DAO::delete_key<Order_item_DTO_key>(order_item_db,
+                                                  matched_order_item_dto_key_list.list.front(),
+                                                  errors, nullptr, true);
       } else {
-        Bdb_DAO::delete_key<Order_item_DTO_key>(order_item_db,
-                                                matched_order_item_dto_key_list.list.front(),
-                                                errors, nullptr, true);
         Bdb_DAO::lookup<Order_item_DTO_key, Order_item_DTO>(order_item_db,
                                                             matched_order_item_dto_key_list.list.front(),
                                                             order_item_dto_with_key,
                                                             errors);
+        if (!errors.has())
+          Bdb_DAO::delete_key<Order_item_DTO_key>(order_item_db,
+                                                  matched_order_item_dto_key_list.list.front(),
+                                                  errors, nullptr, true);
       }
     }
   }

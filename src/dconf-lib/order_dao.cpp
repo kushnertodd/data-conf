@@ -53,6 +53,20 @@ void Order_DAO::save(Bdb_dbp &order_db, Order_DTO &order_dto, Bdb_errors &errors
 }
 
 /*!
+ * @brief save order_item dto to order_item database
+ * @param order_item_db order_item database to which to save
+ * @param order_item_dto prinicpals dto to save
+ * @param errors if save fails
+ */
+void Order_DAO::save_key(Bdb_dbp &order_db,
+                         Order_DTO &order_dto,
+                         Order_DTO &order_dto_with_key,
+                         Bdb_errors &errors) {
+  Bdb_DAO::save_key<Order_DTO_key, Order_DTO>
+      (order_db, order_dto, order_dto_with_key, errors);
+}
+
+/*!
  * @brief select all order dto records from order database
  * @param order_db order database to select from
  * @param order_dto_list all order dtos in database

@@ -7,6 +7,7 @@ class Request {
     static request_parameters = {
         account_select_all: {"argument_count": 0},
         order_add_item: {"argument_count": 2},
+        order_new: {"argument_count": 2},
         order_remove: {"argument_count": 1},
         order_remove_item: {"argument_count": 2},
         order_select_all_for_account_id: {"argument_count": 1},

@@ -2,6 +2,7 @@ archive/
 *.gz
 .idea/
 imdb-data/
+src_old/
 *.log
 META-INF/
 .*.swp

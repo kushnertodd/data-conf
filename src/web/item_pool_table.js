@@ -117,6 +117,16 @@ class Item_pool_table {
         Item_pool_table.label.html("");
     }
 
+    // static row_contextmenu_onlick_handler(e) {
+    //     e.preventDefault();
+    //     let item_row_selected = e.currentTarget;
+    //     let data = item_row_selected.data;
+    //     let item_id = data.item_id;
+    //     Table.select_row(item_row_selected);
+    //     Item_description_table.label_set();
+    //     Item_description_table.create(data);
+    // }
+
     static row_onlick_handler(e) {
         e.preventDefault();
         let item_pool_row_selected = e.currentTarget;

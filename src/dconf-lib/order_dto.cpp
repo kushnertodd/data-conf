@@ -7,9 +7,14 @@
 #include "order_dto.hpp"
 
 Order_DTO::Order_DTO(std::string order_id_,
-                   std::string account_id_,
-                   std::string name_) :
+                     std::string account_id_,
+                     std::string name_) :
     order_id(std::move(order_id_)),
+    account_id(std::move(account_id_)),
+    name(std::move(name_)) {}
+
+Order_DTO::Order_DTO(std::string account_id_,
+                     std::string name_) :
     account_id(std::move(account_id_)),
     name(std::move(name_)) {}
 
@@ -18,9 +23,9 @@ Order_DTO::Order_DTO(void *buffer) {
 }
 
 Order_DTO::Order_DTO(int count,
-                   const std::string &line,
-                   Bdb_errors &errors,
-                   char delimiter) {
+                     const std::string &line,
+                     Bdb_errors &errors,
+                     char delimiter) {
   parse(count, line, errors, delimiter);
 }
 
@@ -30,6 +35,13 @@ size_t Order_DTO::buffer_size() const {
   len += Bdb_serialization::buffer_len_string(account_id);
   len += Bdb_serialization::buffer_len_string(name);
   return len;
+}
+
+void Order_DTO::create(const Order_DTO &order_DTO, const std::string &order_id_) {
+  order_id = order_id_;
+  account_id = order_DTO.account_id;
+  name = order_DTO.name;
+  score = order_DTO.score;
 }
 
 void *Order_DTO::deserialize(void *buffer) {
@@ -50,7 +62,7 @@ void Order_DTO::from_json(json_object *jobj, Bdb_errors &errors) {
   // parse: ' { "order_id": ... `
   if (!errors.has())
     order_id = Bdb_json_utils::get_json_string("Order_DTO::from_json",
-                                              "3", jobj, "order_id", errors);
+                                               "3", jobj, "order_id", errors);
   if (!errors.has())
     account_id = Bdb_json_utils::get_json_string("Order_DTO::from_json",
                                                  "4", jobj, "account_id", errors);
@@ -91,9 +103,9 @@ int Order_DTO::get_order_account_id(Db *dbp, const Dbt *pkey, const Dbt *pdata, 
 }
 
 void Order_DTO::parse(int count,
-                     const std::string &line,
-                     Bdb_errors &errors,
-                     char delimiter) {
+                      const std::string &line,
+                      Bdb_errors &errors,
+                      char delimiter) {
   std::vector<std::string> token_list = Bdb_tokens::tokenize(line, delimiter);
   int i = 0;
   for (const std::string &token_str: token_list) {

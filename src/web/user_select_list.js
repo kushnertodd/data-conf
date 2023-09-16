@@ -69,7 +69,7 @@ class User_Select_list {
         let data = selected_option.data;
         User_Select_list.data = data;
         let account_id = data.account_id;
-        User_Select_list.username = data.username;
+        //User_Select_list.username = data.username;
         let request = new Request({
             request: "order_select_all_for_account_id",
             arguments: account_id

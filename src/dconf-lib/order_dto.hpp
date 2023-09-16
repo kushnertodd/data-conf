@@ -16,9 +16,11 @@ class Order_DTO { // use Dconf_DTO as pattern but do not inherit
   std::string score{};
   Order_DTO() = default;
   Order_DTO(std::string order_id_, std::string account_id_, std::string name_);
+  Order_DTO(std::string account_id_, std::string name_);
   explicit Order_DTO(void *buffer);
   Order_DTO(int count, const std::string &line, Bdb_errors &errors, char delimiter);
   [[nodiscard]] size_t buffer_size() const;
+  void create(const Order_DTO &order_DTO, const std::string &order_id_);
   void *deserialize(void *buffer);
   void from_json(json_object *jobj, Bdb_errors &errors);
   [[nodiscard]] inline std::string get_id() const { return order_id; }

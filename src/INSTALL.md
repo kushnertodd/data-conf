@@ -283,20 +283,21 @@ For web files or if src/web files change:
   - open ssh
   - remove files from home directory:
     $ rm *.js *.css *.html
-  - upload:
+  - upload these files from src/web:
     *.js
     *.css
     *.html
   - modify request.js to select the request_url to 34.106.93.238:8000 instead of localhost
 
-->  static request_url = "http://34.106.93.238:8000";
-    //static request_url = "http://localhost:8000";
+    ->  static request_url = "http://34.106.93.238:8000";
+        //static request_url = "http://localhost:8000";
     
   - run:
+    $ sudo rm /var/www/html/*.js /var/www/html/*.css /var/www/html/*.html 
     $ sudo cp *.js *.css *.html /var/www/html
-  - to be sure they copied okay, in /var/www/html run:
+  - to be sure they copied okay, run:
     $ for f in *.js *.css *.html; do echo $f; diff $f ~/$f; done
-    (ensure the diff is clean)
+    Ensure the diff is clean.
 
 For api server or if any of these files change:
 
@@ -311,39 +312,49 @@ For api server or if any of these files change:
   - in src/scripts
     + in one window run:
       $ sh dconf_app.sh
-      (make sure there are no connect errors, else see section at the end)
+      Make sure there are no connect errors, else see section at the end.
     + in another window run:
       $ sh rm-db-samples.sh
       $ sh ls-db-samples.sh
-      (ensure src/data/db is clean)
+      Ensure src/data/db is clean.
       $ sh check.sh
-      (ensure all requests succeed)
+      Ensure all requests succeed.
       $ sh dump_db_samples.sh
       $ diff dump_sample.txt dump_sample_init.txt
-      (make sure diff is clean)
+      Make sure diff is clean.
   - stop dconf_app.sh
   - in src/docker run:
-    (start docker for windows if using)
+    Start docker for windows if using.
     $ sh stop_images.sh
     $ sh remove_images.sh
     $ docker ps
+    Ensure no images are running.
     $ docker images
-    (ensure images are gone)
+    Ensure images are gone.
   + note that the docker uses the data files in data/
-    $ rm *db dconf_app
+    $ rm data/*db dconf_app bdb_databases.jsonsh 
+    Ensure Docker for Windows is running if on Windows.
     $ sh build.sh
     $ sh run_api.sh
-    (see container-id)
+    Save printed container-id.
     $ docker logs --follow <container-id>
-    (ensure you see 'server socket opened (3)')
-    (open src/weblocalhost/dconf-home.html web page in chrome, select a user and order to make sure is working)
-    (run '$ sh stop_images.sh' is passes)
+    Ensure you see 'server socket opened (3)'.
+    Open src/weblocalhost/dconf-home.html web page in chrome.
+    Select a user and order to make sure is working (do not modify any data).
+    Stop the docker log and run '$ sh stop_images.sh' if it passes.
     
 - on app-bdb-inet-lookup-instance-1:
- + open ssh
+ + open ssh for the instance
  + delete files in home directory:
    $ rm *db *json *sh dconf_app Dockerfile
- + if you want fresh db files, upload files from src/docker to instance:
+ + Upload these files from src/docker to the instance:
+   Dockerfile
+   dconf_app
+   dconf_app.sh
+   remove_images.sh
+   run_api.sh
+   stop_images.sh
+ + if you want fresh db files, upload files from src/docker/data to instance:
    account.db
    account_email.sdb
    account_username.sdb
@@ -361,12 +372,6 @@ For api server or if any of these files change:
    order.db
    order_name.sdb
    order_name_triplets.db
-   Dockerfile
-   dconf_app
-   dconf_app.sh
-   remove_images.sh
-   run_api.sh
-   stop_images.sh
    
  + in the home directory run:
   = first time:
@@ -377,50 +382,15 @@ For api server or if any of these files change:
   $ sh stop_images.sh
   $ sh remove_images.sh
   $ docker ps
+  Ensure no images are running.
   $ docker images
-  (ensure images are gone)
+  Ensure images are gone.
   $ sh build_api.sh
   $ sh run_api.sh
 
 You should be able to connect from http://35.192.73.70/dconf-home.html and see the 'Welcome to the Magic Online Item Game!' page.
 
-2023-09-09 v0.3 instructions
-- connect from http://35.192.73.70/dconf-home.html and see the 'Welcome to the Magic Online Item Game!' page
-- select a user
-  + the order list should appear
-- select a order
-  + the order row should be highlighted
-  + the Edit Order button appears in blue (enabled)
-  + the item table appears below
-- select the other order, those order items should appear
-- click Edit Order
-  + the Edit order button should become grey (disabled)
-  + a Remove item button should appear over the items as grey
-  + a table of available items should appear on the right with an Add item button as grey
-- select a item in the left item list
-  + the item row should be highlighted
-  + the Remove item button should change to blue
-- click Remove item
-  + the item should move to the available item list
-  + the Remove Item button should become grey
-- select a item in the available item list
-  + the item row should be highlighted
-  + the Add item button should change to blue
-- click Add item
-  + the carAddd should move to the left item list
-  + the Remove Item button should become grey
-- keep clicking items in the left and available list and move them back and forth
-  + try emptying one of the lists and make sure you can move items back into it
-- select another order 
-  + the order row should be highlighted
-  + the Edit Order button appears in blue
-  + the item table appears below
-  + the available item list disappears
-- try editing that order 
-- select another user
-  + the order list should appear
-  + all other tables should disappear
-  
+ 
 You may need some tools to check ports if you can't start dconf_app:
 - netstat
   + install with:

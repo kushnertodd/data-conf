@@ -322,6 +322,10 @@ class Dconf_order_request_handler {
                          const Dconf_request &dconf_request,
                          Dconf_request_response &dconf_request_response,
                          Bdb_errors &errors);
+  static bool new_order(Dconf_inet_app_init &dconf_inet_app_init,
+                        const Dconf_request &dconf_request,
+                        Dconf_request_response &dconf_request_response,
+                        Bdb_errors &errors);
   static bool remove_item(Dconf_inet_app_init &dconf_inet_app_init,
                           const Dconf_request &dconf_request,
                           Dconf_request_response &dconf_request_response,
@@ -368,32 +372,3 @@ class Dconf_order_item_request_handler {
                    Bdb_errors &errors);
 };
 
-/*
-class Dconf_workflow_request_handler {
- public:
-  static bool handle(Dconf_inet_app_init &dconf_inet_app_init,
-                     const Dconf_request &dconf_request,
-                     Dconf_request_response &dconf_request_response,
-                     Bdb_errors &errors);
-  static bool remove_account(Dconf_inet_app_init &Dconf_inet_app_init,
-                             const Dconf_request &dconf_request,
-                             Dconf_request_response &dconf_request_response,
-                             Bdb_errors &errors);
-  static bool remove_item(Dconf_inet_app_init &Dconf_inet_app_init,
-                          const Dconf_request &dconf_request,
-                          Dconf_request_response &dconf_request_response,
-                          Bdb_errors &errors);
-  static bool add_item_to_order(Dconf_inet_app_init &Dconf_inet_app_init,
-                                const Dconf_request &dconf_request,
-                                Dconf_request_response &dconf_request_response,
-                                Bdb_errors &errors);
-  static bool remove_order(Dconf_inet_app_init &Dconf_inet_app_init,
-                           const Dconf_request &dconf_request,
-                           Dconf_request_response &dconf_request_response,
-                           Bdb_errors &errors);
-  static bool remove_item_from_order(Dconf_inet_app_init &Dconf_inet_app_init,
-                                     const Dconf_request &dconf_request,
-                                     Dconf_request_response &dconf_request_response,
-                                     Bdb_errors &errors);
-};
-*/

@@ -10,13 +10,15 @@
           "class_name": "Secondary_database_config",
           "name": "account_email",
           "filename": "account_email.sdb",
-          "key_extractor": "get_account_email"
+          "key_extractor": "get_account_email",
+          "key": "email"
         },
         {
           "class_name": "Secondary_database_config",
           "name": "account_username",
           "filename": "account_username.sdb",
-          "key_extractor": "get_account_username"
+          "key_extractor": "get_account_username",
+          "key": "username"
         }
       ]
     },
@@ -60,13 +62,15 @@
           "class_name": "Secondary_database_config",
           "name": "order_account_id",
           "filename": "order_account_id.sdb",
-          "key_extractor": "get_order_account_id"
+          "key_extractor": "get_order_account_id",
+          "key": "account_id"
         },
         {
           "class_name": "Secondary_database_config",
           "name": "order_name",
           "filename": "order_name.sdb",
-          "key_extractor": "get_order_name"
+          "key_extractor": "get_order_name",
+          "key": "name"
         }
       ]
     },
@@ -79,13 +83,15 @@
           "class_name": "Secondary_database_config",
           "name": "order_item_item_id",
           "filename": "order_item_item_id.sdb",
-          "key_extractor": "get_order_item_item_id"
+          "key_extractor": "get_order_item_item_id",
+          "key": "item_id"
         },
         {
           "class_name": "Secondary_database_config",
           "name": "order_item_order_id",
           "filename": "order_item_order_id.sdb",
-          "key_extractor": "get_order_item_order_id"
+          "key_extractor": "get_order_item_order_id",
+          "key": "order_id"
         }
       ]
     },
