@@ -9,7 +9,7 @@ Dconf_request::Dconf_request(const std::string &request, Bdb_errors &errors) {
   if (request_json == nullptr)
     errors.add("Dconf_request_handler::Dconf_request",
                "1",
-               "invalid request json: " + request, errno);
+               "invalid request json: '" + request + "'", errno);
   else {
     std::string request_class_name =
         Bdb_json_utils::get_json_string("Dconf_request_handler::Dconf_request", "1",

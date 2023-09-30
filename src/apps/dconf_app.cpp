@@ -10,18 +10,20 @@ int main(int argc, const char **argv) {
   Bdb_errors errors;
   Dconf_inet_app_init dconf_inet_app_init(argc, argv, errors);
   if (!errors.has()) {
-    Bdb_inet_socket_server bdb_socket_server(dconf_inet_app_init.port, errors);
-    if (!errors.has())
-      while (true) {
-        errors.clear();
-        Bdb_inet_socket_server::Bdb_inet_socket_client bdb_socket_client(bdb_socket_server,
-                                                                         errors);
-        if (!errors.has()) {
+    while (true) {
+      errors.clear();
+      Bdb_inet_socket_server bdb_socket_server(dconf_inet_app_init.port, errors);
+      if (!errors.has())
+        while (true) {
+          errors.clear();
+          Bdb_inet_socket_server::Bdb_inet_socket_client bdb_socket_client(bdb_socket_server,
+                                                                           errors);
           int buffer_len = 1 << 16;
           char buffer[buffer_len];
-          int bytes_read = bdb_socket_client.read_socket(buffer, buffer_len, errors);
-          if (!errors.has() && bytes_read) {
-            std::cout << "dconf_app: received " << std::endl << buffer << std::endl;
+          if (!errors.has()) {
+            int bytes_read = bdb_socket_client.read_socket(buffer, buffer_len, errors);
+            if (!errors.has() && bytes_read)
+              std::cout << "dconf_app: received " << std::endl << buffer << std::endl;
             std::string request = Bdb_inet_socket_server::http_body(buffer, bytes_read);
             if (request == Server_socket_stop_command)
               break;
@@ -39,18 +41,21 @@ int main(int argc, const char **argv) {
               response_string = errors.to_json_string();
               std::cout << std::endl << "no results: " << response_string << std::endl;
             }
-            const std::string &server_message = Bdb_inet_socket_server::http_header(response_string);
-            std::cout << "dconf_app: sending:" << std::endl << server_message << std::endl;
-            bdb_socket_client.write_socket(server_message.c_str(),
-                                           server_message.length() + 1,
-                                           errors);
-            dconf_request_response.cleanup();
+            if (!errors.has()) {
+              const std::string &server_message = Bdb_inet_socket_server::http_header(response_string);
+              std::cout << "dconf_app: sending:" << std::endl << server_message << std::endl;
+              bdb_socket_client.write_socket(server_message.c_str(),
+                                             server_message.length() + 1,
+                                             errors);
+              dconf_request_response.cleanup();
+            }
+          }
+          if (errors.has()) {
+            std::cout << errors.to_string() << std::endl;
+            break;
           }
         }
-        if (errors.has()) {
-          std::cout << errors.to_string() << std::endl;
-        }
-      }
+    }
   }
   if (errors.has()) {
     std::cout << errors.to_string() << std::endl;
